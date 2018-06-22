@@ -1,31 +1,20 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import injectSheet from 'react-jss'
-
 import Header from '../components/Header'
 import Footer from '../components/Footer'
+import Head from '../components/Head'
 
 const styles = {}
 
 const Layout = ({ children, data, classes }) => (
   <div>
-    <Helmet
-      title={data.site.siteMetadata.title}
-      meta={[
-        { name: 'description', content: 'Sample' },
-        { name: 'keywords', content: 'sample, something' },
-      ]}
-    />
+    <Head siteTitle={data.site.siteMetadata.title} />
     <Header siteTitle={data.site.siteMetadata.title} />
     <article>{children()}</article>
     <Footer />
   </div>
 )
-
-Layout.propTypes = {
-  children: PropTypes.func,
-}
 
 export default injectSheet(styles)(Layout)
 
