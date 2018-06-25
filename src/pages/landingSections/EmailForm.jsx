@@ -1,13 +1,13 @@
 import React from 'react'
 import injectSheet from 'react-jss'
-import { Form, FormGroup, FormControl, Button } from 'react-bootstrap'
+import { Form, FormGroup, Input, Button } from 'reactstrap'
 
 const styles = {}
 
 const EmailForm = ({ classes }) => (
-  <Form inline>
+  <Form className="justify-content-center" inline>
     <FormGroup>
-      <FormControl type="text" placeholder="Your email" />
+      <Input type="email" placeholder="Your email" />
       <Button type="submit">Let's build things!</Button>
     </FormGroup>
   </Form>

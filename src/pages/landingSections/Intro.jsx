@@ -1,6 +1,6 @@
 import React from 'react'
 import injectSheet from 'react-jss'
-import { Grid, Row, Col } from 'react-bootstrap'
+import { Container, Row, Col } from 'reactstrap'
 import tylerImage from '../../images/tyler.png'
 
 const styles = {
@@ -9,17 +9,17 @@ const styles = {
     fontSize: '1.2em',
   },
   image: {
-    maxHeight: '80vh',
+    maxHeight: '75vh',
   },
 }
 
 const Intro = ({ classes }) => (
   <section className={classes.base}>
-    <Grid>
+    <Container>
       <Row>
-        <Col xs={12} lg={7}>
+        <Col xs="12" md="7" className="align-self-center">
           <h1>Who is Tyler Becks?</h1>
-          <p>
+          <p className="text-justify">
             He is a New York Times Bestselling author. The Wall Street Journal
             calls him a top influencer on the web, Forbes says he is one of the
             top 10 marketers, and Entrepreneur Magazine says he created one of
@@ -29,7 +29,7 @@ const Intro = ({ classes }) => (
           </p>
         </Col>
 
-        <Col xs={12} lg={5}>
+        <Col xs="12" md="5" className="align-self-end">
           <figure>
             <img
               className={classes.image}
@@ -39,7 +39,7 @@ const Intro = ({ classes }) => (
           </figure>
         </Col>
       </Row>
-    </Grid>
+    </Container>
   </section>
 )
 

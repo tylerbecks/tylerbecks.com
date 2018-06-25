@@ -13,16 +13,12 @@ const styles = {
   link: {
     textDecoration: 'none',
   },
-  header: {
-    fontWeight: 300,
-    textTransform: 'uppercase',
-  },
 }
 
 const Header = ({ siteTitle, classes }) => (
   <section>
     <header className={classes.heading}>
-      <h1 className={classes.header}>
+      <h1 className={`text-uppercase font-weight-light`}>
         <Link to="/" className={classes.link}>
           {siteTitle}
         </Link>
