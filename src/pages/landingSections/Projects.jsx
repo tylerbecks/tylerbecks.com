@@ -2,12 +2,12 @@ import React from 'react'
 import injectSheet from 'react-jss'
 import Project from '../../components/Project'
 import occupancyImg from '../../images/occupancy.png'
-import alertsImg from '../../images/alerts.png'
-import oversellImg from '../../images/oversell.png'
+import alertsImg from '../../images/alerts.jpg'
+import oversellImg from '../../images/oversell.jpg'
 import redditImg from '../../images/reddit.gif'
 import hoardersImg from '../../images/hoarders.gif'
-import eatupImg from '../../images/eatup.png'
-import pandorasboxImg from '../../images/pandorasbox.png'
+import eatupImg from '../../images/eatup.jpg'
+import pandorasboxImg from '../../images/pandorasbox.jpg'
 
 const occupancy = {
   image: occupancyImg,

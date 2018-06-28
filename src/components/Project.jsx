@@ -20,7 +20,7 @@ const styles = {
 const Project = ({ classes, imageSrc, alt, description, title, offset }) => (
   <Container fluid className={classes.base}>
     <Row>
-      <Col md={{ size: 7, order: offset ? 2 : 1 }}>
+      <Col md={{ size: 6, order: offset ? 2 : 1 }}>
         <img
           className={`${classes.image} ${offset ? classes.imageRight : ''}`}
           src={imageSrc}
@@ -28,7 +28,7 @@ const Project = ({ classes, imageSrc, alt, description, title, offset }) => (
         />
       </Col>
       <Col
-        md={{ size: 5, order: offset ? 1 : 2 }}
+        md={{ size: 6, order: offset ? 1 : 2 }}
         className="justify-content-center"
       >
         <h3>{title}</h3>
