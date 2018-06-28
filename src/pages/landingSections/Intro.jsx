@@ -10,6 +10,7 @@ const styles = {
   },
   image: {
     maxHeight: '75vh',
+    filter: `drop-shadow(5px 0px 6px rgba(0, 0, 0, 0.2))`,
   },
 }
 
