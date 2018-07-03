@@ -97,6 +97,7 @@ const styles = {}
 
 const Projects = ({}) => (
   <section>
+    <h1 className="text-center">Projects</h1>
     {projects.map(({ image, alt, description, title }, index) => (
       <Project
         key={image}
@@ -104,7 +105,7 @@ const Projects = ({}) => (
         alt={alt}
         description={description}
         title={title}
-        offset={index % 2 !== 0}
+        reverse={index % 2 !== 0}
       />
     ))}
   </section>

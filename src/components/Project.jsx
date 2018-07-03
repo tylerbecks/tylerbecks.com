@@ -4,35 +4,45 @@ import { Container, Col, Row } from 'reactstrap'
 
 const styles = {
   base: {
-    marginBottom: '2rem',
+    padding: '1rem 0',
   },
+  reverse: {},
   image: {
     maxWidth: '100%',
     boxShadow: `0px 1px 5px 0px rgba(0, 0, 0, 0.2),
       0px 2px 2px 0px rgba(0, 0, 0, 0.14),
       0px 3px 1px -2px rgba(0, 0, 0, 0.12)`,
   },
-  imageRight: {
-    float: 'right',
+  textSection: {
+    padding: '0 2rem',
   },
 }
 
-const Project = ({ classes, imageSrc, alt, description, title, offset }) => (
-  <Container fluid className={classes.base}>
+const Project = ({ classes, imageSrc, alt, description, title, reverse }) => (
+  <Container
+    fluid
+    className={`${classes.base} ${reverse ? classes.reverse : ''}`}
+  >
     <Row>
-      <Col md={{ size: 6, order: offset ? 2 : 1 }}>
-        <img
-          className={`${classes.image} ${offset ? classes.imageRight : ''}`}
-          src={imageSrc}
-          alt={alt}
-        />
+      <Col
+        md={{
+          order: reverse ? 2 : 1,
+          size: 6,
+        }}
+        className="text-center"
+      >
+        <img className={classes.image} src={imageSrc} alt={alt} />
       </Col>
       <Col
-        md={{ size: 6, order: offset ? 1 : 2 }}
-        className="justify-content-center"
+        md={{
+          offset: reverse ? 2 : 0,
+          order: reverse ? 1 : 2,
+          size: 4,
+        }}
+        className={`justify-content-center ${classes.textSection}`}
       >
         <h3>{title}</h3>
-        <p className="text-justify">{description}</p>
+        <p>{description}</p>
       </Col>
     </Row>
   </Container>
