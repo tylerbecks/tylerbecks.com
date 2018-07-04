@@ -1,10 +1,13 @@
 import React from 'react'
 import injectSheet from 'react-jss'
-import { Container, Col, Row } from 'reactstrap'
+import { Badge, Container, Col, Row } from 'reactstrap'
 
 const styles = {
   base: {
     padding: '1rem 0',
+  },
+  badge: {
+    marginRight: '0.4rem',
   },
   reverse: {},
   image: {
@@ -18,7 +21,15 @@ const styles = {
   },
 }
 
-const Project = ({ classes, imageSrc, alt, description, title, reverse }) => (
+const Project = ({
+  classes,
+  imageSrc,
+  alt,
+  description,
+  title,
+  reverse,
+  technologies,
+}) => (
   <Container
     fluid
     className={`${classes.base} ${reverse ? classes.reverse : ''}`}
@@ -43,6 +54,11 @@ const Project = ({ classes, imageSrc, alt, description, title, reverse }) => (
       >
         <h3>{title}</h3>
         <p>{description}</p>
+        {technologies.map(t => (
+          <Badge className={classes.badge} color="danger">
+            {t}
+          </Badge>
+        ))}
       </Col>
     </Row>
   </Container>
