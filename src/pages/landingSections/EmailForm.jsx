@@ -7,8 +7,12 @@ const styles = {}
 const EmailForm = ({}) => (
   <Form className="justify-content-center" inline>
     <InputGroup>
-      <Input />
-      <InputGroupAddon addonType="append" placeholder="Your email">
+      <Input
+        className="form-control-lg"
+        placeholder="Your email"
+        type="email"
+      />
+      <InputGroupAddon addonType="append">
         <Button color="danger" type="submit">
           Let's build things!
         </Button>

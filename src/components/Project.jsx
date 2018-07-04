@@ -4,12 +4,12 @@ import { Badge, Container, Col, Row } from 'reactstrap'
 
 const styles = {
   base: {
-    padding: '1rem 0',
+    padding: '2rem 0',
   },
   badge: {
     marginRight: '0.4rem',
   },
-  reverse: {},
+  textFirst: {},
   image: {
     maxWidth: '100%',
     boxShadow: `0px 1px 5px 0px rgba(0, 0, 0, 0.2),
@@ -27,18 +27,17 @@ const Project = ({
   alt,
   description,
   title,
-  reverse,
+  reverse: textFirst,
+  url,
   technologies,
 }) => (
-  <Container
-    fluid
-    className={`${classes.base} ${reverse ? classes.reverse : ''}`}
-  >
+  <Container fluid className={classes.base}>
     <Row>
       <Col
         md={{
-          order: reverse ? 2 : 1,
-          size: 6,
+          offset: textFirst ? 0 : 1,
+          order: textFirst ? 2 : 1,
+          size: 5,
         }}
         className="text-center"
       >
@@ -46,13 +45,20 @@ const Project = ({
       </Col>
       <Col
         md={{
-          offset: reverse ? 2 : 0,
-          order: reverse ? 1 : 2,
+          offset: textFirst ? 2 : 0,
+          order: textFirst ? 1 : 2,
           size: 4,
         }}
         className={`justify-content-center ${classes.textSection}`}
       >
-        <h3>{title}</h3>
+        {url ? (
+          <a href={url}>
+            <h3>{title}</h3>
+          </a>
+        ) : (
+          <h3>{title}</h3>
+        )}
+
         <p>{description}</p>
         {technologies.map(t => (
           <Badge className={classes.badge} color="danger">

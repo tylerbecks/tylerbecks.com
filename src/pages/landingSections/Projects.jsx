@@ -33,6 +33,7 @@ const occupancy = {
   title: 'Data Visualization',
   technologies: SMARKING_TECHNOLOGIES,
 }
+
 const alerts = {
   image: alertsImg,
   alt: 'Smarking alerts creation modal',
@@ -42,6 +43,7 @@ const alerts = {
   title: 'Alerts',
   technologies: SMARKING_TECHNOLOGIES,
 }
+
 const oversell = {
   image: oversellImg,
   alt: 'Smkarking oversell tool',
@@ -65,6 +67,7 @@ const reddit = {
     user data in Redux. To optimize the system architecture for scalability, I broke 
     out a microservice to store user data in a PostgreSQL database.`,
   title: 'Reddi2Mingle',
+  url: 'https://github.com/tylerbecks/Reddi2Mingle',
   technologies: [
     'React',
     'Redux',
@@ -79,6 +82,7 @@ const reddit = {
     'Socket.io',
   ],
 }
+
 const hoarders = {
   image: hoardersImg,
   alt: 'hoarders game-play demo',
@@ -88,6 +92,7 @@ const hoarders = {
     geolocation API to track and update player coordinates. I also enabled multiplayer 
     functionality by streaming player locations with Socket.io.`,
   title: 'Hoarders',
+  url: 'https://github.com/tylerbecks/hoarders',
   technologies: [
     'React',
     'HTML5/CSS3',
@@ -98,6 +103,7 @@ const hoarders = {
     'Google Maps API',
   ],
 }
+
 const eatup = {
   image: eatupImg,
   alt: 'eatup dashboard',
@@ -108,6 +114,7 @@ const eatup = {
     React to build the frontend components, Node and Express for the backend, and MySQL to 
     store all the user data and content.`,
   title: 'EatUp',
+  url: 'https://github.com/tylerbecks/eatup',
   technologies: [
     'React',
     'HTML5/CSS3',
@@ -117,6 +124,7 @@ const eatup = {
     'Google Places API',
   ],
 }
+
 const pandorasbox = {
   image: pandorasboxImg,
   alt: "pandora's box question page",
@@ -125,6 +133,7 @@ const pandorasbox = {
     non-judgmental community. Designed with a mobile-first approach in Angular and the backend 
     is Node and Express. I used MongoDB to store anonymous user responses.`,
   title: "Pandora's Box",
+  url: 'https://github.com/tylerbecks/pandoras-box',
   technologies: ['Angular', 'HTML5/CSS3', 'Node', 'Express', 'MongoDB'],
 }
 
@@ -143,17 +152,20 @@ const styles = {}
 const Projects = ({}) => (
   <section>
     <h1 className="text-center">Projects</h1>
-    {projects.map(({ image, alt, description, technologies, title }, index) => (
-      <Project
-        alt={alt}
-        description={description}
-        imageSrc={image}
-        key={image}
-        reverse={index % 2 !== 0}
-        technologies={technologies}
-        title={title}
-      />
-    ))}
+    {projects.map(
+      ({ image, alt, description, technologies, title, url }, index) => (
+        <Project
+          alt={alt}
+          description={description}
+          imageSrc={image}
+          key={image}
+          reverse={index % 2 !== 0}
+          technologies={technologies}
+          title={title}
+          url={url}
+        />
+      )
+    )}
   </section>
 )
 
