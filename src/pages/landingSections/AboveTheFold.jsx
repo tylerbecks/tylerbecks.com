@@ -16,11 +16,12 @@ const AboveTheFold = ({ classes }) => (
       <Row className="text-center">
         <Col>
           <h1 className="display-3">Do you need an engineer?</h1>
+          <br />
         </Col>
       </Row>
 
-      <Row>
-        <Col>
+      <Row className="justify-content-center">
+        <Col md={7}>
           <EmailForm />
         </Col>
       </Row>
