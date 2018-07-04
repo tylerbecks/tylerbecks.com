@@ -9,6 +9,17 @@ import hoardersImg from '../../images/hoarders.gif'
 import eatupImg from '../../images/eatup.jpg'
 import pandorasboxImg from '../../images/pandorasbox.jpg'
 
+const SMARKING_TECHNOLOGIES = [
+  'JavaScript (ES6)',
+  'React',
+  'Redux',
+  'CoffeeScript',
+  'Python',
+  'Flask',
+  'PostgreSQL',
+  'Stylus',
+]
+
 const occupancy = {
   image: occupancyImg,
   alt: 'Smarking occupancy data chart',
@@ -20,6 +31,7 @@ const occupancy = {
     downloading the chart and data, and an in-house legend with customizable
     colors.`,
   title: 'Data Visualization',
+  technologies: SMARKING_TECHNOLOGIES,
 }
 const alerts = {
   image: alertsImg,
@@ -28,6 +40,7 @@ const alerts = {
     a specified threshold. Users can choose to receive alerts via email or text. 
     We used Mandrill for email alerts and Twilio for text alerts.`,
   title: 'Alerts',
+  technologies: SMARKING_TECHNOLOGIES,
 }
 const oversell = {
   image: oversellImg,
@@ -36,6 +49,7 @@ const oversell = {
     oversell particular groups of their tenants/parkers. Based on each group’s 
     historical usage patterns, the tool calculates the ideal oversell percentage.`,
   title: 'Oversell',
+  technologies: SMARKING_TECHNOLOGIES,
 }
 
 const reddit = {
@@ -51,6 +65,19 @@ const reddit = {
     user data in Redux. To optimize the system architecture for scalability, I broke 
     out a microservice to store user data in a PostgreSQL database.`,
   title: 'Reddi2Mingle',
+  technologies: [
+    'React',
+    'Redux',
+    'HTML5/CSS3',
+    'SCSS',
+    'Node',
+    'Express',
+    'Redis',
+    'PostgreSQL',
+    'Neo4j',
+    'Passport',
+    'Socket.io',
+  ],
 }
 const hoarders = {
   image: hoardersImg,
@@ -61,6 +88,15 @@ const hoarders = {
     geolocation API to track and update player coordinates. I also enabled multiplayer 
     functionality by streaming player locations with Socket.io.`,
   title: 'Hoarders',
+  technologies: [
+    'React',
+    'HTML5/CSS3',
+    'Node',
+    'Express',
+    'MongoDB',
+    'Socket.io',
+    'Google Maps API',
+  ],
 }
 const eatup = {
   image: eatupImg,
@@ -72,6 +108,14 @@ const eatup = {
     React to build the frontend components, Node and Express for the backend, and MySQL to 
     store all the user data and content.`,
   title: 'EatUp',
+  technologies: [
+    'React',
+    'HTML5/CSS3',
+    'Node',
+    'Express',
+    'MySQL',
+    'Google Places API',
+  ],
 }
 const pandorasbox = {
   image: pandorasboxImg,
@@ -81,6 +125,7 @@ const pandorasbox = {
     non-judgmental community. Designed with a mobile-first approach in Angular and the backend 
     is Node and Express. I used MongoDB to store anonymous user responses.`,
   title: "Pandora's Box",
+  technologies: ['Angular', 'HTML5/CSS3', 'Node', 'Express', 'MongoDB'],
 }
 
 const projects = [
@@ -98,14 +143,15 @@ const styles = {}
 const Projects = ({}) => (
   <section>
     <h1 className="text-center">Projects</h1>
-    {projects.map(({ image, alt, description, title }, index) => (
+    {projects.map(({ image, alt, description, technologies, title }, index) => (
       <Project
-        key={image}
-        imageSrc={image}
         alt={alt}
         description={description}
-        title={title}
+        imageSrc={image}
+        key={image}
         reverse={index % 2 !== 0}
+        technologies={technologies}
+        title={title}
       />
     ))}
   </section>
