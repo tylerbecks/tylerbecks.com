@@ -1,15 +1,19 @@
 import React from 'react'
 import injectSheet from 'react-jss'
-import { Form, FormGroup, Input, Button } from 'reactstrap'
+import { InputGroup, InputGroupAddon, Form, Input, Button } from 'reactstrap'
 
 const styles = {}
 
-const EmailForm = ({ classes }) => (
+const EmailForm = ({}) => (
   <Form className="justify-content-center" inline>
-    <FormGroup>
-      <Input type="email" placeholder="Your email" />
-      <Button type="submit">Let's build things!</Button>
-    </FormGroup>
+    <InputGroup>
+      <Input />
+      <InputGroupAddon addonType="append" placeholder="Your email">
+        <Button color="danger" type="submit">
+          Let's build things!
+        </Button>
+      </InputGroupAddon>
+    </InputGroup>
   </Form>
 )
 
