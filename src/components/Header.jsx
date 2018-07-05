@@ -1,13 +1,12 @@
 import React from 'react'
-import Link from 'gatsby-link'
 import injectSheet from 'react-jss'
-import { orange, offWhite } from '../utils/styles'
+import { offWhite } from '../utils/styles'
 
 const styles = {
   heading: {
     padding: `35px 0`,
     backgroundColor: offWhite,
-    color: orange,
+    color: '#dc3545',
     textAlign: 'center',
   },
   link: {
@@ -18,11 +17,7 @@ const styles = {
 const Header = ({ siteTitle, classes }) => (
   <section>
     <header className={classes.heading}>
-      <h1 className={`text-uppercase font-weight-light`}>
-        <Link to="/" className={classes.link}>
-          {siteTitle}
-        </Link>
-      </h1>
+      <h1 className={`text-uppercase font-weight-light`}>{siteTitle}</h1>
     </header>
   </section>
 )
