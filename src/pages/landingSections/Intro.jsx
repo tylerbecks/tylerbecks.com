@@ -2,11 +2,17 @@ import React from 'react'
 import injectSheet from 'react-jss'
 import { Container, Row, Col } from 'reactstrap'
 import tylerImage from '../../resources/images/tyler.png'
+import { offWhite } from '../../utils/styles'
 
 const styles = {
-  base: {
+  root: {
+    background: offWhite,
     textAlign: 'center',
     fontSize: '1.2em',
+    paddingTop: '2rem',
+  },
+  figure: {
+    margin: '0',
   },
   image: {
     maxHeight: '75vh',
@@ -15,7 +21,7 @@ const styles = {
 }
 
 const Intro = ({ classes }) => (
-  <section className={classes.base}>
+  <section className={classes.root}>
     <Container>
       <Row>
         <Col xs="12" md="7" className="align-self-center">
@@ -32,7 +38,7 @@ const Intro = ({ classes }) => (
         </Col>
 
         <Col xs="12" md="5" className="align-self-end">
-          <figure>
+          <figure className={classes.figure}>
             <img
               className={classes.image}
               src={tylerImage}

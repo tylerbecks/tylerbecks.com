@@ -1,5 +1,6 @@
 import React from 'react'
 import injectSheet from 'react-jss'
+import { lightGray, white } from '../../utils/styles'
 import Project from '../../components/Project'
 import occupancyImg from '../../resources/images/occupancy.png'
 import alertsImg from '../../resources/images/alerts.jpg'
@@ -140,17 +141,30 @@ const pandorasbox = {
 const smarkingProjects = [occupancy, alerts, oversell]
 const projects = [reddit, hoarders, eatup, pandorasbox]
 
-const styles = {}
+const styles = {
+  section: {
+    paddingBottom: '2rem',
+    paddingTop: '2rem',
+  },
+}
 
-const AllProjects = ({}) => (
+const AllProjects = ({ classes }) => (
   <div>
-    <ProjectsSection projects={smarkingProjects} title="Smarking Projects" />
-    <ProjectsSection projects={projects} title="Personal Projects" />
+    <ProjectsSection
+      className={classes.section}
+      projects={smarkingProjects}
+      title="Smarking Projects"
+    />
+    <ProjectsSection
+      className={classes.section}
+      projects={projects}
+      title="Personal Projects"
+    />
   </div>
 )
 
-const ProjectsSection = ({ title, projects }) => (
-  <section>
+const ProjectsSection = ({ className, title, projects }) => (
+  <section className={className}>
     <h1 className="text-center">{title}</h1>
     {projects.map(
       ({ image, alt, description, technologies, title, url }, index) => (

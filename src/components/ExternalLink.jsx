@@ -3,7 +3,7 @@ import injectSheet from 'react-jss'
 
 const externalLinksStyles = {
   externalLinkIcon: {
-    fontSize: '1rem',
+    fontSize: '.8rem',
     marginLeft: '.5rem',
   },
 }

@@ -1,20 +1,21 @@
 import React from 'react'
 import injectSheet from 'react-jss'
-import { darkGray } from '../../utils/styles'
+import { Container, Col, Row } from 'reactstrap'
 import EmailForm from './EmailForm'
-import { Container, Col, Row, Jumbotron } from 'reactstrap'
+import { darkGray } from '../../utils/styles'
 
 const styles = {
   base: {
     background: `${darkGray} !important`,
     color: 'white',
+    height: '70vh',
   },
 }
 
 const AboveTheFold = ({ classes }) => (
-  <Jumbotron className={`${classes.base} text-center} mx-auto`}>
+  <section className={`${classes.base} text-center d-flex align-items-center`}>
     <Container>
-      <Row className="text-center">
+      <Row>
         <Col>
           <h1 className="display-3">Do you need an engineer?</h1>
           <br />
@@ -27,7 +28,7 @@ const AboveTheFold = ({ classes }) => (
         </Col>
       </Row>
     </Container>
-  </Jumbotron>
+  </section>
 )
 
 export default injectSheet(styles)(AboveTheFold)

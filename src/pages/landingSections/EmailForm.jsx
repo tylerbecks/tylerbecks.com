@@ -11,14 +11,14 @@ const EmailForm = ({}) => (
     className="justify-content-center"
   >
     <InputGroup>
-      <input type="hidden" name="_subject" value="New submission!" />
-      <input type="text" name="_gotcha" style={{ display: 'none' }} />
       <Input
         className="form-control-lg"
         name="_replyto"
         placeholder="Your email"
         type="email"
       />
+      <input type="hidden" name="_subject" value="New submission!" />
+      <input type="text" name="_gotcha" style={{ display: 'none' }} />
       <InputGroupAddon addonType="append">
         <Button color="danger" type="submit">
           Let's rock and roll!
