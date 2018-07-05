@@ -1,16 +1,13 @@
 import React from 'react'
 import injectSheet from 'react-jss'
-import { offWhite } from '../utils/styles'
+import { darkGray } from '../utils/styles'
 
 const styles = {
   heading: {
     padding: `35px 0`,
-    backgroundColor: offWhite,
-    color: '#dc3545',
+    background: darkGray,
+    color: 'white',
     textAlign: 'center',
-  },
-  link: {
-    textDecoration: 'none',
   },
 }
 

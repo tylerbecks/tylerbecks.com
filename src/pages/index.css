@@ -1,0 +1,7 @@
+body {
+  background: #26262a;
+}
+
+body > * {
+  background: #fff;
+}

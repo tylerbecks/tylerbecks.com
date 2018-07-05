@@ -1,12 +1,13 @@
 import React from 'react'
 import injectSheet from 'react-jss'
-import { offWhite } from '../../utils/styles'
+import { darkGray } from '../../utils/styles'
 import EmailForm from './EmailForm'
 import { Container, Col, Row, Jumbotron } from 'reactstrap'
 
 const styles = {
   base: {
-    background: `${offWhite} !important`,
+    background: `${darkGray} !important`,
+    color: 'white',
   },
 }
 
