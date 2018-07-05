@@ -27,7 +27,7 @@ const Intro = ({ classes }) => (
             startup scene since 2016, and now the lead feature developer at
             Smarking (YC 2015). Born and raised in LA 🌴, now in SF 🤓. As an
             avid traveler, he is bilingual, has lived on three continents, and
-            traveled to over thirty countries.
+            traveled to over 30 countries.
           </p>
         </Col>
 

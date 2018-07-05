@@ -137,21 +137,21 @@ const pandorasbox = {
   technologies: ['Angular', 'HTML5/CSS3', 'Node', 'Express', 'MongoDB'],
 }
 
-const projects = [
-  occupancy,
-  alerts,
-  oversell,
-  reddit,
-  hoarders,
-  eatup,
-  pandorasbox,
-]
+const smarkingProjects = [occupancy, alerts, oversell]
+const projects = [reddit, hoarders, eatup, pandorasbox]
 
 const styles = {}
 
-const Projects = ({}) => (
+const AllProjects = ({}) => (
+  <div>
+    <ProjectsSection projects={smarkingProjects} title="Smarking Projects" />
+    <ProjectsSection projects={projects} title="Personal Projects" />
+  </div>
+)
+
+const ProjectsSection = ({ title, projects }) => (
   <section>
-    <h1 className="text-center">Projects</h1>
+    <h1 className="text-center">{title}</h1>
     {projects.map(
       ({ image, alt, description, technologies, title, url }, index) => (
         <Project
@@ -169,4 +169,4 @@ const Projects = ({}) => (
   </section>
 )
 
-export default injectSheet(styles)(Projects)
+export default injectSheet(styles)(AllProjects)
