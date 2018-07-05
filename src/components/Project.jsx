@@ -1,6 +1,7 @@
 import React from 'react'
 import injectSheet from 'react-jss'
 import { Badge, Container, Col, Row } from 'reactstrap'
+import ExternalLink from './ExternalLink'
 
 const styles = {
   base: {
@@ -56,9 +57,7 @@ const Project = ({
       >
         {url ? (
           <h3>
-            <a className={classes.link} href={url} target="_blank">
-              {title}
-            </a>
+            <ExternalLink className={classes.link} text={title} href={url} />
           </h3>
         ) : (
           <h3>{title}</h3>

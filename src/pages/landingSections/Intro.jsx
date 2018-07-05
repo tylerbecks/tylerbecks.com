@@ -1,7 +1,7 @@
 import React from 'react'
 import injectSheet from 'react-jss'
 import { Container, Row, Col } from 'reactstrap'
-import tylerImage from '../../images/tyler.png'
+import tylerImage from '../../resources/images/tyler.png'
 
 const styles = {
   base: {

@@ -1,5 +1,4 @@
 import React from 'react'
-import Helmet from 'react-helmet'
 import injectSheet from 'react-jss'
 import Header from '../components/Header'
 import Footer from '../components/Footer'

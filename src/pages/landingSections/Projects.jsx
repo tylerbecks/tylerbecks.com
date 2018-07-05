@@ -1,13 +1,13 @@
 import React from 'react'
 import injectSheet from 'react-jss'
 import Project from '../../components/Project'
-import occupancyImg from '../../images/occupancy.png'
-import alertsImg from '../../images/alerts.jpg'
-import oversellImg from '../../images/oversell.jpg'
-import redditImg from '../../images/reddit.gif'
-import hoardersImg from '../../images/hoarders.gif'
-import eatupImg from '../../images/eatup.jpg'
-import pandorasboxImg from '../../images/pandorasbox.jpg'
+import occupancyImg from '../../resources/images/occupancy.png'
+import alertsImg from '../../resources/images/alerts.jpg'
+import oversellImg from '../../resources/images/oversell.jpg'
+import redditImg from '../../resources/images/reddit.gif'
+import hoardersImg from '../../resources/images/hoarders.gif'
+import eatupImg from '../../resources/images/eatup.jpg'
+import pandorasboxImg from '../../resources/images/pandorasbox.jpg'
 
 const SMARKING_TECHNOLOGIES = [
   'JavaScript (ES6)',
