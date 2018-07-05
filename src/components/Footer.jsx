@@ -1,11 +1,12 @@
 import React from 'react'
-import Link from 'gatsby-link'
 import injectSheet from 'react-jss'
 
-const styles = {}
+const styles = {
+  root: {},
+}
 
-const Footer = ({ siteTitle, classes }) => (
-  <footer className={classes.heading}>I'm a footer!</footer>
+const Footer = ({ classes }) => (
+  <footer className={classes.root}>I'm a footer!</footer>
 )
 
 export default injectSheet(styles)(Footer)

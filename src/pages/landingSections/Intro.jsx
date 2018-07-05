@@ -21,12 +21,13 @@ const Intro = ({ classes }) => (
         <Col xs="12" md="7" className="align-self-center">
           <h1>Who is Tyler Becks?</h1>
           <p className="text-justify">
-            He is a New York Times Bestselling author. The Wall Street Journal
-            calls him a top influencer on the web, Forbes says he is one of the
-            top 10 marketers, and Entrepreneur Magazine says he created one of
-            the 100 most brilliant companies. He was recognized as a top 100
-            entrepreneur under the age of 30 by President Obama and a top 100
-            entrepreneur under the age of 35 by the United Nations.
+            He loves to challenge the status quo. He hates horseradish (yes,
+            wasabi too). He is a fullstack engineer that’s savvy with React,
+            JavaScript, and Python. He has been working in the San Francisco
+            startup scene since 2016, and now the lead feature developer at
+            Smarking (YC 2015). Born and raised in LA 🌴, now in SF 🤓. As an
+            avid traveler, he is bilingual, has lived on three continents, and
+            traveled to over thirty countries.
           </p>
         </Col>
 
