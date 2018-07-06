@@ -1,6 +1,8 @@
 import React from 'react'
 import injectSheet from 'react-jss'
-import { Container, Row, Col } from 'reactstrap'
+import Link from 'gatsby-link'
+import { Button, Container, Row, Col } from 'reactstrap'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import tylerImage from '../../resources/images/tyler.png'
 import { offWhite } from '../../utils/styles'
 
@@ -29,12 +31,19 @@ const Intro = ({ classes }) => (
           <p className="text-justify">
             He loves to challenge the status quo. He hates horseradish (yes,
             wasabi too). He is a fullstack engineer that’s savvy with React,
-            JavaScript, and Python. He has been working in the San Francisco
-            startup scene since 2016, and now the lead feature developer at
+            JavaScript, and Python. He's been working in the San Francisco
+            startup scene since 2016 and is now the lead feature developer at
             Smarking (YC 2015). Born and raised in LA 🌴, now in SF 🤓. As an
-            avid traveler, he is bilingual, has lived on three continents, and
+            avid traveler, he is bilingual, lived on three continents, and
             traveled to over 30 countries.
           </p>
+          <br />
+          <a href="http://localhost:8000/tyler_becks_resume.pdf">
+            <Button color="danger">
+              <FontAwesomeIcon icon="file-alt" fixedWidth />
+              Download his resume
+            </Button>
+          </a>
         </Col>
 
         <Col xs="12" md="5" className="align-self-end">

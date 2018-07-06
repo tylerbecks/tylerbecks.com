@@ -4,6 +4,7 @@ import {
   faEnvelope,
   faExternalLinkAlt,
   faInfinity,
+  faFileAlt,
 } from '@fortawesome/free-solid-svg-icons'
 
-library.add(fab, faExternalLinkAlt, faEnvelope, faInfinity)
+library.add(fab, faExternalLinkAlt, faEnvelope, faInfinity, faFileAlt)

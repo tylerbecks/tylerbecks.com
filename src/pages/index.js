@@ -4,9 +4,9 @@ import '../utils/iconLibrary'
 import React from 'react'
 import jss from 'jss'
 import jssNested from 'jss-nested'
-import AboveTheFold from './landingSections/AboveTheFold'
-import Intro from './landingSections/Intro'
-import Projects from './landingSections/Projects'
+import AboveTheFold from '../components/landingSections/AboveTheFold'
+import Intro from '../components/landingSections/Intro'
+import Projects from '../components/landingSections/Projects'
 
 jss.setup(jssNested())
 
