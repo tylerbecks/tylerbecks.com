@@ -14,11 +14,11 @@ const Head = ({ siteTitle, url }) => (
     {/* Favicon */}
 
     {/* Facebook Meta */}
-    <meta property="og:image:height" content="496" />
-    <meta property="og:image:width" content="948" />
+    <meta property="og:image:height" content="1257" />
+    <meta property="og:image:width" content="2400" />
     <meta
       property="og:description"
-      content="Check out everything Tyler has been working on"
+      content="Check out what Tyler's been building"
     />
     <meta property="og:title" content="Tyler Becks' Portfolio" />
     <meta property="og:url" content={url} />
