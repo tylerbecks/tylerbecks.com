@@ -25,7 +25,7 @@ const Intro = ({ classes, url }) => (
   <section className={classes.root}>
     <Container>
       <Row>
-        <Col xs="12" md="7" className="align-self-center">
+        <Col xs="12" md="7" className="align-self-center mb-4">
           <h1>Who is Tyler Becks?</h1>
           <p className="text-justify">
             He loves to challenge the status quo. He hates horseradish (yes,
@@ -39,7 +39,7 @@ const Intro = ({ classes, url }) => (
           <br />
           <a href={`${url}/tyler_becks_resume.pdf`} target="_blank">
             <Button color="danger">
-              <FontAwesomeIcon icon="file-alt" fixedWidth />
+              <FontAwesomeIcon icon="file-alt" className="mr-2" />
               Download his resume
             </Button>
           </a>
