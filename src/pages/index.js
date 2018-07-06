@@ -10,12 +10,23 @@ import Projects from '../components/landingSections/Projects'
 
 jss.setup(jssNested())
 
-const IndexPage = () => (
+const IndexPage = ({ data }) => (
   <div>
     <AboveTheFold />
-    <Intro />
+    <Intro url={data.site.siteMetadata.url} />
     <Projects />
   </div>
 )
+
+export const query = graphql`
+  query UrlQuery {
+    site {
+      siteMetadata {
+        title
+        url
+      }
+    }
+  }
+`
 
 export default IndexPage

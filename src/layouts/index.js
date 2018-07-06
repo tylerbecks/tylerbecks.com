@@ -6,12 +6,15 @@ import Head from '../components/Head'
 
 const styles = {}
 
-const Layout = ({ children, data, classes }) => (
+const Layout = ({ children, data }) => (
   <div>
-    <Head siteTitle={data.site.siteMetadata.title} />
+    <Head
+      siteTitle={data.site.siteMetadata.title}
+      url={data.site.siteMetadata.url}
+    />
     <Header siteTitle={data.site.siteMetadata.title} />
     <article>{children()}</article>
-    <Footer />
+    <Footer url={data.site.siteMetadata.url} />
   </div>
 )
 
@@ -22,6 +25,7 @@ export const query = graphql`
     site {
       siteMetadata {
         title
+        url
       }
     }
   }

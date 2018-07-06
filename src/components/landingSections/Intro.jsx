@@ -21,7 +21,7 @@ const styles = {
   },
 }
 
-const Intro = ({ classes }) => (
+const Intro = ({ classes, url }) => (
   <section className={classes.root}>
     <Container>
       <Row>
@@ -37,7 +37,7 @@ const Intro = ({ classes }) => (
             traveled to over 30 countries.
           </p>
           <br />
-          <a href={`${window.location.origin}/tyler_becks_resume.pdf`}>
+          <a href={`${url}/tyler_becks_resume.pdf`} target="_blank">
             <Button color="danger">
               <FontAwesomeIcon icon="file-alt" fixedWidth />
               Download his resume

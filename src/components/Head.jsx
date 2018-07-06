@@ -1,7 +1,7 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
 
-const Head = ({ siteTitle }) => (
+const Head = ({ siteTitle, url }) => (
   <Helmet title={siteTitle}>
     {/* Favicon */}
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
@@ -21,11 +21,8 @@ const Head = ({ siteTitle }) => (
       content="Check out everything Tyler has been working on"
     />
     <meta property="og:title" content="Tyler Becks' Portfolio" />
-    <meta property="og:url" content={window.location.origin} />
-    <meta
-      property="og:image"
-      content={`${window.location.origin}/og-image.jpg`}
-    />
+    <meta property="og:url" content={url} />
+    <meta property="og:image" content={`${url}/og-image.jpg`} />
     {/* Facebook Meta */}
   </Helmet>
 )

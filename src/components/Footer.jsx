@@ -15,7 +15,7 @@ const styles = {
   },
 }
 
-const Footer = ({ classes }) => (
+const Footer = ({ classes, url }) => (
   <footer className={classes.root}>
     <a
       href="https://github.com/tylerbecks"
@@ -61,7 +61,7 @@ const Footer = ({ classes }) => (
       <FontAwesomeIcon icon={['fab', 'twitter']} fixedWidth />
     </a>
 
-    <a href={window.location.origin} className={classes.link}>
+    <a href={url} className={classes.link}>
       <FontAwesomeIcon icon="infinity" fixedWidth />
     </a>
   </footer>
