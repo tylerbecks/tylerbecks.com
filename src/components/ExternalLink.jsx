@@ -1,9 +1,10 @@
 import React from 'react'
 import injectSheet from 'react-jss'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const externalLinksStyles = {
   externalLinkIcon: {
-    fontSize: '.8rem',
+    fontSize: '1rem',
     marginLeft: '.5rem',
   },
 }
@@ -27,10 +28,9 @@ class ExternalLink extends React.Component {
       >
         {this.props.text}
         {this.state.hovered && (
-          <span
-            className={`oi oi-external-link ${
-              this.props.classes.externalLinkIcon
-            }`}
+          <FontAwesomeIcon
+            icon="external-link-alt"
+            className={this.props.classes.externalLinkIcon}
           />
         )}
       </a>

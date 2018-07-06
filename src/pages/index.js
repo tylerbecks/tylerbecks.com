@@ -1,6 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
-import 'open-iconic/font/css/open-iconic-bootstrap.css'
 import './index.css'
+import '../utils/iconLibrary'
 import React from 'react'
 import jss from 'jss'
 import jssNested from 'jss-nested'

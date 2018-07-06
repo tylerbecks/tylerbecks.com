@@ -1,6 +1,5 @@
 import React from 'react'
 import injectSheet from 'react-jss'
-
 import { darkGray } from '../utils/styles'
 
 const styles = {
@@ -12,7 +11,15 @@ const styles = {
 }
 
 const Footer = ({ classes }) => (
-  <footer className={classes.root}>I'm a footer!</footer>
+  <footer className={classes.root}>
+    <div>
+      <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+    </div>
+  </footer>
 )
 
 export default injectSheet(styles)(Footer)
