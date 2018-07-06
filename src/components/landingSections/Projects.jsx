@@ -1,6 +1,21 @@
 import React from 'react'
 import injectSheet from 'react-jss'
-import { lightGray, white } from '../../utils/styles'
+import {
+  angular,
+  coffeeScript,
+  css3,
+  express,
+  googleMaps,
+  html5,
+  javascript,
+  mongo,
+  mysql,
+  node,
+  postgresql,
+  python,
+  react,
+  sass,
+} from '../../utils/logos'
 import Project from '../../components/Project'
 import occupancyImg from '../../resources/images/occupancy.png'
 import alertsImg from '../../resources/images/alerts.jpg'
@@ -11,14 +26,14 @@ import eatupImg from '../../resources/images/eatup.jpg'
 import pandorasboxImg from '../../resources/images/pandorasbox.jpg'
 
 const SMARKING_TECHNOLOGIES = [
-  'JavaScript (ES6)',
-  'React',
-  'Redux',
-  'CoffeeScript',
-  'Python',
-  'Flask',
-  'PostgreSQL',
-  'Stylus',
+  javascript,
+  react,
+  { text: 'Redux' },
+  coffeeScript,
+  python,
+  { text: 'Flask' },
+  postgresql,
+  { text: 'Stylus' },
 ]
 
 const occupancy = {
@@ -70,17 +85,18 @@ const reddit = {
   title: 'Reddi2Mingle',
   url: 'https://github.com/tylerbecks/Reddi2Mingle',
   technologies: [
-    'React',
-    'Redux',
-    'HTML5/CSS3',
-    'SCSS',
-    'Node',
-    'Express',
-    'Redis',
-    'PostgreSQL',
-    'Neo4j',
-    'Passport',
-    'Socket.io',
+    react,
+    { text: 'Redux' },
+    html5,
+    css3,
+    sass,
+    node,
+    express,
+    { text: 'Redis' },
+    postgresql,
+    { text: 'Neo4j' },
+    { text: 'Passport' },
+    { text: 'Socket.io' },
   ],
 }
 
@@ -95,13 +111,14 @@ const hoarders = {
   title: 'Hoarders',
   url: 'https://github.com/tylerbecks/hoarders',
   technologies: [
-    'React',
-    'HTML5/CSS3',
-    'Node',
-    'Express',
-    'MongoDB',
-    'Socket.io',
-    'Google Maps API',
+    react,
+    html5,
+    css3,
+    node,
+    express,
+    mongo,
+    { text: 'Socket.io' },
+    googleMaps,
   ],
 }
 
@@ -116,14 +133,7 @@ const eatup = {
     store all the user data and content.`,
   title: 'EatUp',
   url: 'https://github.com/tylerbecks/eatup',
-  technologies: [
-    'React',
-    'HTML5/CSS3',
-    'Node',
-    'Express',
-    'MySQL',
-    'Google Places API',
-  ],
+  technologies: [react, html5, css3, node, express, mysql, googleMaps],
 }
 
 const pandorasbox = {
@@ -135,7 +145,7 @@ const pandorasbox = {
     is Node and Express. I used MongoDB to store anonymous user responses.`,
   title: "Pandora's Box",
   url: 'https://github.com/tylerbecks/pandoras-box',
-  technologies: ['Angular', 'HTML5/CSS3', 'Node', 'Express', 'MongoDB'],
+  technologies: [angular, html5, css3, node, express, mongo],
 }
 
 const smarkingProjects = [occupancy, alerts, oversell]

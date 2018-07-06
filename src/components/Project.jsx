@@ -1,7 +1,6 @@
 import React from 'react'
 import injectSheet from 'react-jss'
 import { Badge, Container, Col, Row } from 'reactstrap'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import ExternalLink from './ExternalLink'
 
 const styles = {
@@ -10,8 +9,8 @@ const styles = {
   },
   badge: {
     marginRight: '0.4rem',
-    '& img': {
-      height: '1em',
+    '& svg': {
+      marginRight: '.4em',
     },
   },
   image: {
@@ -69,9 +68,9 @@ const Project = ({
 
         <p>{description}</p>
         {technologies.map(t => (
-          <Badge className={classes.badge} color="danger" key={t}>
-            {/* <FontAwesomeIcon icon="stroopwafel" /> */}
-            {t}
+          <Badge className={classes.badge} color="primary" key={t.text}>
+            {t.icon && t.icon}
+            {t.text}
           </Badge>
         ))}
       </Col>

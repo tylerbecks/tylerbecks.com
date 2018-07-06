@@ -1,6 +1,5 @@
 import React from 'react'
 import injectSheet from 'react-jss'
-import Link from 'gatsby-link'
 import { Button, Container, Row, Col } from 'reactstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import tylerImage from '../../resources/images/tyler.png'
