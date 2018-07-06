@@ -61,7 +61,7 @@ const Footer = ({ classes }) => (
       <FontAwesomeIcon icon={['fab', 'twitter']} fixedWidth />
     </a>
 
-    <a href="http://tylerbecks.com" className={classes.link}>
+    <a href={window.location.origin} className={classes.link}>
       <FontAwesomeIcon icon="infinity" fixedWidth />
     </a>
   </footer>

@@ -37,7 +37,7 @@ const Intro = ({ classes }) => (
             traveled to over 30 countries.
           </p>
           <br />
-          <a href="http://localhost:8000/tyler_becks_resume.pdf">
+          <a href={`${window.location.origin}/tyler_becks_resume.pdf`}>
             <Button color="danger">
               <FontAwesomeIcon icon="file-alt" fixedWidth />
               Download his resume

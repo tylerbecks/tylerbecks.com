@@ -21,10 +21,10 @@ const Head = ({ siteTitle }) => (
       content="Check out everything Tyler has been working on"
     />
     <meta property="og:title" content="Tyler Becks' Portfolio" />
-    <meta property="og:url" content="http://tylerbecks.com/" />
+    <meta property="og:url" content={window.location.origin} />
     <meta
       property="og:image"
-      content="http://tylerbecks.com/img/facebook/og-image.jpg"
+      content={`${window.location.origin}/og-image.jpg`}
     />
     {/* Facebook Meta */}
   </Helmet>
