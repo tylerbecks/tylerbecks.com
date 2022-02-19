@@ -1,7 +1,6 @@
 import React from 'react'
 import injectSheet from 'react-jss'
-import { Button, Container, Row, Col } from 'reactstrap'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { Container, Row, Col } from 'reactstrap'
 import tylerImage from '../../resources/images/tyler.png'
 import { offWhite } from '../../utils/styles'
 
@@ -32,7 +31,7 @@ const Intro = ({ classes, url }) => (
             wasabi too). He is a fullstack engineer that’s savvy with React,
             JavaScript, and Python. He's been working in the San Francisco
             startup scene since 2016 and is now the lead feature developer at
-            Smarking (YC 2015). Born and raised in LA 🌴, now in SF 🤓. As an
+            Smarking (YC 2015). Born and raised in LA <span role="image" aria-label="palm-tree">🌴</span>, now in SF <span role="image" aria-label="nerd-with-glasses">🤓</span>. As an
             avid traveler, he is bilingual, lived on three continents, and
             traveled to over 30 countries.
           </p>
