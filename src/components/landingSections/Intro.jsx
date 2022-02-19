@@ -36,13 +36,6 @@ const Intro = ({ classes, url }) => (
             avid traveler, he is bilingual, lived on three continents, and
             traveled to over 30 countries.
           </p>
-          <br />
-          <a href={`${url}/tyler_becks_resume.pdf`} target="_blank">
-            <Button color="danger">
-              <FontAwesomeIcon icon="file-alt" className="mr-2" />
-              Download his resume
-            </Button>
-          </a>
         </Col>
 
         <Col xs="12" md="5" className="align-self-end">
