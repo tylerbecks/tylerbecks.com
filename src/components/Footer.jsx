@@ -20,6 +20,7 @@ const Footer = ({ classes, url }) => (
     <a
       href="https://github.com/tylerbecks"
       target="_blank"
+      rel="noreferrer"
       className={classes.link}
     >
       <FontAwesomeIcon icon={['fab', 'github']} fixedWidth />
@@ -28,6 +29,7 @@ const Footer = ({ classes, url }) => (
     <a
       href="https://www.linkedin.com/in/tylerbecks/"
       target="_blank"
+      rel="noreferrer"
       className={classes.link}
     >
       <FontAwesomeIcon icon={['fab', 'linkedin']} fixedWidth />
@@ -40,6 +42,7 @@ const Footer = ({ classes, url }) => (
     <a
       href="https://www.instagram.com/tyler.becks/"
       target="_blank"
+      rel="noreferrer"
       className={classes.link}
     >
       <FontAwesomeIcon icon={['fab', 'instagram']} fixedWidth />
@@ -48,6 +51,7 @@ const Footer = ({ classes, url }) => (
     <a
       href="https://www.facebook.com/tyler.becks.5"
       target="_blank"
+      rel="noreferrer"
       className={classes.link}
     >
       <FontAwesomeIcon icon={['fab', 'facebook']} fixedWidth />
@@ -56,6 +60,7 @@ const Footer = ({ classes, url }) => (
     <a
       href="https://twitter.com/tylerbecks"
       target="_blank"
+      rel="noreferrer"
       className={classes.link}
     >
       <FontAwesomeIcon icon={['fab', 'twitter']} fixedWidth />

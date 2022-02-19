@@ -23,6 +23,7 @@ class ExternalLink extends React.Component {
         className={this.props.className}
         href={this.props.href}
         target="_blank"
+        rel="noreferrer"
         onMouseEnter={this.showIcon}
         onMouseLeave={this.hideIcon}
       >
