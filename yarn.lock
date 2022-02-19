@@ -5481,7 +5481,7 @@ gatsby-legacy-polyfills@^0.7.1:
   dependencies:
     core-js-compat "^3.6.5"
 
-gatsby-link@^2.0.0, gatsby-link@^2.11.0:
+gatsby-link@^2.11.0:
   version "2.11.0"
   resolved "https://registry.yarnpkg.com/gatsby-link/-/gatsby-link-2.11.0.tgz#15e99c89bdde1c99686ce53bda72beb3c9c39455"
   integrity sha512-AYXxndlSx5mnYv+/PBPdPBRvdv1LeSGE3WO8uYj2ReYDSbhiAlF3KKz30D62ErartXP0deySPtRKx4Dd3nCFYw==
