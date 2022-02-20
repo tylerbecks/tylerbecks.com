@@ -31,7 +31,7 @@ const Intro = ({ classes, url }) => (
             wasabi too). He is a fullstack engineer that’s savvy with React,
             JavaScript, and Python. He's been working in the San Francisco
             startup scene since 2016 and is now the lead feature developer at
-            Smarking (YC 2015). Born and raised in LA <span role="image" aria-label="palm-tree">🌴</span>, now in SF <span role="image" aria-label="nerd-with-glasses">🤓</span>. As an
+            Smarking (YC 2015). Born and raised in LA <span role="img" aria-label="palm-tree">🌴</span>, now in SF <span role="img" aria-label="nerd-with-glasses">🤓</span>. As an
             avid traveler, he is bilingual, lived on three continents, and
             traveled to over 30 countries.
           </p>
