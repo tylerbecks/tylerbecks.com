@@ -10,7 +10,7 @@ npm create astro@latest -- --template blog
 
 > 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
 
-![blog](https://github.com/withastro/astro/assets/2244813/ff10799f-a816-4703-b967-c78997e8323d)
+![blog](https://github.com/tylerbecks/assets/2244813/ff10799f-a816-4703-b967-c78997e8323d)
 
 Features:
 
