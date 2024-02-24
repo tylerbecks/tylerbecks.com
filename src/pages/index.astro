@@ -4,7 +4,23 @@ import Footer from '../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 ---
 
-<!doctype html>
+<script>
+  // On mobile, setting a max-height of 100vh does not work due to how mobile browsers interpret viewport height (vh)
+  // Mobdile browsers often change the viewport height (the 100vh calculation) when the address bar appears or
+  // disappears as you scroll. Therefore, adjust the height dynamically with these listeners.
+  function adjustHeight() {
+    const viewportHeight = window.innerHeight + 'px';
+    document.documentElement.style.setProperty('--vh', viewportHeight);
+  }
+
+  // Adjust height on resize and orientation change
+  window.addEventListener('resize', adjustHeight);
+  window.addEventListener('orientationchange', adjustHeight);
+
+  // Initial Adjustment
+  adjustHeight();
+</script>
+
 <html lang="en">
   <head>
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
@@ -19,18 +35,16 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 </html>
 
 <style is:global>
-  html: {
-    height: 100vh;
-    max-height: 100vh;
+  html, body {
+    height: calc(var(--vh, 1vh));
+    max-height: calc(var(--vh, 1vh));
   }
 
   body {
     align-items: center;
     display: flex;
     flex-direction: column;
-    height: 100vh;
     justify-content: space-between;
-    max-height: 100vh;
   }
 
   h1 {
