@@ -1,7 +1,6 @@
 import { useConversation } from '@11labs/react';
 import { useCallback, useState } from 'react';
 import { PhoneIcon, PhoneXMarkIcon } from '@heroicons/react/24/solid';
-import VoiceVisualizer from './VoiceVisualizer';
 
 const AGENT_ID = 'soblHdsUBU9PQu1VwrTT';
 
