@@ -5,7 +5,6 @@ import { PhoneIcon, PhoneXMarkIcon } from '@heroicons/react/24/solid';
 const AGENT_ID = 'soblHdsUBU9PQu1VwrTT';
 
 export default function AIConversation() {
-  const [error, setError] = useState<string | null>(null);
   const [messages, setMessages] = useState<Array<{ text: string; fromAI: boolean }>>([]);
   const [audioLevel, setAudioLevel] = useState(0);
   const analyserRef = useRef<AnalyserNode | null>(null);
@@ -26,7 +25,6 @@ export default function AIConversation() {
     },
     onError: (error) => {
       console.error('ElevenLabs error:', error);
-      setError(error);
     },
   });
 
@@ -166,10 +164,6 @@ export default function AIConversation() {
             </>
           )}
         </div>
-
-        {error && (
-          <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-full mb-4">{error}</div>
-        )}
       </div>
     </>
   );
