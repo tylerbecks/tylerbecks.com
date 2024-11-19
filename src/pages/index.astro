@@ -1,4 +1,5 @@
 ---
+import AIConversation from '../components/AIConversation';
 import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
@@ -26,9 +27,12 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
   </head>
   <body>
-    <main>
+    <header>
       <h1 class="first-name">TYLER</h1>
       <h1 class="last-name">BECKS</h1>
+    </header>
+    <main>
+      <AIConversation client:load />
     </main>
     <Footer />
   </body>
