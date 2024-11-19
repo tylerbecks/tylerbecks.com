@@ -141,7 +141,7 @@ export default function AIConversation() {
 
       {/* Main content */}
       <div className="max-w-2xl mx-auto p-4">
-        <div className="mb-4 space-y-2">
+        <div className="space-y-2 min-h-[75px] flex flex-col items-start">
           {!isConnected ? (
             <button
               onClick={startConversation}
@@ -160,7 +160,7 @@ export default function AIConversation() {
                 End call
               </button>
 
-              <div className="ml-4 text-sm text-gray-500">
+              <div className="text-sm text-gray-500 ml-2">
                 {conversation.isSpeaking ? 'Agent is speaking...' : 'Listening...'}
               </div>
             </>

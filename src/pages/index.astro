@@ -72,20 +72,20 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
   }
 
   .first-name {
-    --orange: lab(65% 40 55);
-    --orange-text: lab(70% 40 55);
-    --orange-shadow: lab(65% 40 55/.7);
+    --purple: lab(55% 63 -68);
+    --purple-text: lab(60% 63 -68);
+    --purple-shadow: lab(55% 63 -68/.7);
 
     /* The neon sign effect */
-    -webkit-text-stroke: clamp(3px, 0.8vw, 8px) var(--orange-text);
-    filter: drop-shadow(0 0 clamp(1px, 1vw, 6px) var(--orange-shadow)) drop-shadow(0 0 clamp(6px, 5vw, 30px) var(--orange));
+    -webkit-text-stroke: clamp(3px, 0.8vw, 8px) var(--purple-text);
+    filter: drop-shadow(0 0 clamp(1px, 1vw, 6px) var(--purple-shadow)) drop-shadow(0 0 clamp(6px, 5vw, 30px) var(--purple));
     animation: turnOn 1.6s forwards 0s; /* 1.6s for turnon duration, starts after 0.8s */
   }
 
   .last-name {
-    --blue: lab(65% 0 -70);
-    --blue-text: lab(70% 0 -70);
-    --blue-shadow: lab(65% 0 -70/.7);
+    --blue: lab(55% 17.5 -64.5);
+    --blue-text: lab(60% 17.5 -64.5);
+    --blue-shadow: lab(55% 17.5 -64.5/.7);
 
     -webkit-text-stroke: clamp(3px, 0.8vw, 8px) var(--blue-text);
     filter: drop-shadow(0 0 clamp(1px, 1vw, 6px) var(--blue-shadow)) drop-shadow(0 0 clamp(6px, 5vw, 30px) var(--blue));
