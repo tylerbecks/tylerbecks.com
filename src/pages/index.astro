@@ -27,12 +27,14 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
   </head>
   <body>
-    <header>
-      <h1 class="first-name">TYLER</h1>
-      <h1 class="last-name">BECKS</h1>
-    </header>
     <main>
-      <AIConversation client:load />
+      <div>
+        <h1 class="first-name">TYLER</h1>
+        <h1 class="last-name">BECKS</h1>
+      </div>
+      <div class="ai-chat">
+        <AIConversation client:load />
+      </div>
     </main>
     <Footer />
   </body>
@@ -66,6 +68,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
     display: flex;
     flex-direction: column;
     justify-content: center;
+    gap: 2rem;
   }
 
   .first-name {
@@ -76,7 +79,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
     /* The neon sign effect */
     -webkit-text-stroke: clamp(3px, 0.8vw, 8px) var(--orange-text);
     filter: drop-shadow(0 0 clamp(1px, 1vw, 6px) var(--orange-shadow)) drop-shadow(0 0 clamp(6px, 5vw, 30px) var(--orange));
-    animation: turnOn 1.6s forwards 0.8s; /* 1.6s for turnon duration, starts after 0.8s */
+    animation: turnOn 1.6s forwards 0s; /* 1.6s for turnon duration, starts after 0.8s */
   }
 
   .last-name {
@@ -86,7 +89,12 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 
     -webkit-text-stroke: clamp(3px, 0.8vw, 8px) var(--blue-text);
     filter: drop-shadow(0 0 clamp(1px, 1vw, 6px) var(--blue-shadow)) drop-shadow(0 0 clamp(6px, 5vw, 30px) var(--blue));
-    animation: turnOn 1.6s forwards 1.5s; /* Delayed start for the last name, to appear after the first name */
+    animation: turnOn 1.6s forwards 0.8s; /* Delayed start for the last name, to appear after the first name */
+  }
+
+  .ai-chat {
+    opacity: 0;
+    animation: turnOn 1.6s forwards 1.6s; /* Delayed start after first and last name shows */
   }
 
   @keyframes turnOn {
