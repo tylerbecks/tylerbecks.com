@@ -1,4 +1,5 @@
 ---
+import AIConversation from '../components/AIConversation';
 import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
@@ -27,8 +28,13 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
   </head>
   <body>
     <main>
-      <h1 class="first-name">TYLER</h1>
-      <h1 class="last-name">BECKS</h1>
+      <div>
+        <h1 class="first-name">TYLER</h1>
+        <h1 class="last-name">BECKS</h1>
+      </div>
+      <div class="ai-chat">
+        <AIConversation client:load />
+      </div>
     </main>
     <Footer />
   </body>
@@ -62,27 +68,33 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
     display: flex;
     flex-direction: column;
     justify-content: center;
+    gap: 2rem;
   }
 
   .first-name {
-    --orange: lab(65% 40 55);
-    --orange-text: lab(70% 40 55);
-    --orange-shadow: lab(65% 40 55/.7);
+    --purple: lab(55% 63 -68);
+    --purple-text: lab(60% 63 -68);
+    --purple-shadow: lab(55% 63 -68/.7);
 
     /* The neon sign effect */
-    -webkit-text-stroke: clamp(3px, 0.8vw, 8px) var(--orange-text);
-    filter: drop-shadow(0 0 clamp(1px, 1vw, 6px) var(--orange-shadow)) drop-shadow(0 0 clamp(6px, 5vw, 30px) var(--orange));
-    animation: turnOn 1.6s forwards 0.8s; /* 1.6s for turnon duration, starts after 0.8s */
+    -webkit-text-stroke: clamp(3px, 0.8vw, 8px) var(--purple-text);
+    filter: drop-shadow(0 0 clamp(1px, 1vw, 6px) var(--purple-shadow)) drop-shadow(0 0 clamp(6px, 5vw, 30px) var(--purple));
+    animation: turnOn 1.6s forwards 0s; /* 1.6s for turnon duration, starts after 0.8s */
   }
 
   .last-name {
-    --blue: lab(65% 0 -70);
-    --blue-text: lab(70% 0 -70);
-    --blue-shadow: lab(65% 0 -70/.7);
+    --blue: lab(55% 17.5 -64.5);
+    --blue-text: lab(60% 17.5 -64.5);
+    --blue-shadow: lab(55% 17.5 -64.5/.7);
 
     -webkit-text-stroke: clamp(3px, 0.8vw, 8px) var(--blue-text);
     filter: drop-shadow(0 0 clamp(1px, 1vw, 6px) var(--blue-shadow)) drop-shadow(0 0 clamp(6px, 5vw, 30px) var(--blue));
-    animation: turnOn 1.6s forwards 1.5s; /* Delayed start for the last name, to appear after the first name */
+    animation: turnOn 1.6s forwards 0.8s; /* Delayed start for the last name, to appear after the first name */
+  }
+
+  .ai-chat {
+    opacity: 0;
+    animation: turnOn 1.6s forwards 1.6s; /* Delayed start after first and last name shows */
   }
 
   @keyframes turnOn {
