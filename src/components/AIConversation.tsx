@@ -1,5 +1,5 @@
 import { useConversation } from '@11labs/react';
-import { useCallback, useState, useEffect } from 'react';
+import { useCallback, useState, useEffect, useRef } from 'react';
 import { PhoneIcon, PhoneXMarkIcon } from '@heroicons/react/24/solid';
 
 const AGENT_ID = 'soblHdsUBU9PQu1VwrTT';
@@ -8,13 +8,18 @@ export default function AIConversation() {
   const [error, setError] = useState<string | null>(null);
   const [messages, setMessages] = useState<Array<{ text: string; fromAI: boolean }>>([]);
   const [audioLevel, setAudioLevel] = useState(0);
-  const [analyser, setAnalyser] = useState<AnalyserNode | null>(null);
+  const analyserRef = useRef<AnalyserNode | null>(null);
+  const animationFrameRef = useRef<number>();
+  const borderRef = useRef<HTMLDivElement>(null);
 
   const conversation = useConversation({
     onConnect: () => {},
     onDisconnect: () => {
       setMessages([]);
       setAudioLevel(0);
+      if (animationFrameRef.current) {
+        cancelAnimationFrame(animationFrameRef.current);
+      }
     },
     onMessage: ({ message, source }) => {
       setMessages((prev) => [...prev, { text: message, fromAI: source === 'ai' }]);
@@ -31,56 +36,71 @@ export default function AIConversation() {
       const audioContext = new AudioContext();
       const source = audioContext.createMediaStreamSource(stream);
       const newAnalyser = audioContext.createAnalyser();
-
+      
+      // Smaller FFT size for more frequent updates
       newAnalyser.fftSize = 256;
+      newAnalyser.smoothingTimeConstant = 0.4;
       source.connect(newAnalyser);
-      setAnalyser(newAnalyser);
+      analyserRef.current = newAnalyser;
 
       await conversation.startSession({
         agentId: AGENT_ID,
       });
+
+      // Start the animation frame loop
+      updateAudioLevel();
     } catch (error) {
       console.error('Failed to start conversation:', error);
     }
   }, [conversation]);
 
   const stopConversation = useCallback(async () => {
-    await conversation.endSession();
-    if (analyser) {
-      analyser.disconnect();
-      setAnalyser(null);
+    if (animationFrameRef.current) {
+      cancelAnimationFrame(animationFrameRef.current);
     }
-  }, [conversation, analyser]);
+    await conversation.endSession();
+    if (analyserRef.current) {
+      analyserRef.current.disconnect();
+      analyserRef.current = null;
+    }
+  }, [conversation]);
 
-  // Audio level monitoring
-  useEffect(() => {
-    if (!analyser || conversation.isSpeaking) {
+  const updateAudioLevel = useCallback(() => {
+    if (!analyserRef.current || conversation.isSpeaking) {
+      animationFrameRef.current = requestAnimationFrame(updateAudioLevel);
       return;
     }
 
-    const dataArray = new Uint8Array(analyser.frequencyBinCount);
+    const dataArray = new Uint8Array(analyserRef.current.frequencyBinCount);
+    analyserRef.current.getByteFrequencyData(dataArray);
 
-    const updateAudioLevel = () => {
-      analyser.getByteFrequencyData(dataArray);
-      const average = dataArray.reduce((a, b) => a + b) / dataArray.length;
-      const normalizedLevel = Math.min(average / 128, 1); // Normalize to 0-1
-      setAudioLevel(normalizedLevel);
+    // Find the maximum frequency value instead of average
+    const maxValue = Math.max(...Array.from(dataArray));
+    const normalizedLevel = Math.min(maxValue / 128, 1);
+    
+    // Apply non-linear scaling for more dramatic effect
+    const scaledLevel = Math.pow(normalizedLevel, 1.8);
+    setAudioLevel(scaledLevel);
+
+    animationFrameRef.current = requestAnimationFrame(updateAudioLevel);
+  }, [conversation.isSpeaking]);
+
+  useEffect(() => {
+    return () => {
+      if (animationFrameRef.current) {
+        cancelAnimationFrame(animationFrameRef.current);
+      }
     };
-
-    const intervalId = setInterval(updateAudioLevel, 50);
-    return () => clearInterval(intervalId);
-  }, [analyser, conversation.isSpeaking]);
+  }, []);
 
   const isConnected = conversation.status === 'connected';
 
-  // Calculate dynamic styles based on audio level and conversation state
   const getBorderStyles = () => {
     if (!isConnected) {
       return {};
     }
 
     if (conversation.isSpeaking) {
-      // AI Speaking - Keep the same enhanced purple glow
       return {
         boxShadow: `
           inset 0 0 30px rgba(168, 85, 247, 0.5),
@@ -90,20 +110,17 @@ export default function AIConversation() {
         border: '2px solid rgba(168, 85, 247, 0.6)',
       };
     } else {
-      const borderWidth = Math.max(2, Math.min(6, 2 + (audioLevel * 4)));
-      const innerGlow = Math.max(20, Math.min(60, 40 + (audioLevel * 40)));
-      const middleGlow = Math.max(15, Math.min(45, 30 + (audioLevel * 30)));
-      const outerGlow = Math.max(10, Math.min(30, 20 + (audioLevel * 20)));
-      const opacity = Math.max(0.5, Math.min(0.8, 0.5 + (audioLevel * 0.3)));
-      
-      // Apply a subtle exponential scaling to make the effect more dramatic
-      const intensityScale = Math.pow(audioLevel, 1.5); // Makes changes more pronounced at higher levels
-      
+      const borderWidth = Math.max(2, Math.min(5, 2 + (audioLevel * 2))); // Increased range
+      const innerGlow = Math.max(20, Math.min(50, 20 + (audioLevel * 30))); // Much larger range
+      const middleGlow = Math.max(15, Math.min(30, 15 + (audioLevel * 20)));
+      const outerGlow = Math.max(10, Math.min(15, 10 + (audioLevel * 10)));
+      const opacity = Math.max(0.4, Math.min(0.6, 0.4 + (audioLevel * 0.2))); // Higher max opacity
+
       return {
         boxShadow: `
-          inset 0 0 ${innerGlow * intensityScale}px rgba(59, 130, 246, ${opacity}),
-          inset 0 0 ${middleGlow * intensityScale}px rgba(59, 130, 246, ${opacity - 0.1}),
-          inset 0 0 ${outerGlow * intensityScale}px rgba(59, 130, 246, ${opacity - 0.2})
+          inset 0 0 ${innerGlow}px rgba(59, 130, 246, ${opacity}),
+          inset 0 0 ${middleGlow}px rgba(59, 130, 246, ${opacity - 0.1}),
+          inset 0 0 ${outerGlow}px rgba(59, 130, 246, ${opacity - 0.2})
         `,
         border: `${borderWidth}px solid rgba(59, 130, 246, ${opacity + 0.1})`,
       };
@@ -114,9 +131,10 @@ export default function AIConversation() {
     <>
       {/* Glowing border container */}
       <div
-        className="fixed inset-0 pointer-events-none transition-all duration-200"
+        ref={borderRef}
+        className="fixed inset-0 pointer-events-none transition-all duration-100"
         style={{
-          transition: 'all 100ms ease-out',
+          transition: 'all 50ms ease-out', // Faster transitions
           ...getBorderStyles(),
         }}
       />
@@ -130,7 +148,7 @@ export default function AIConversation() {
               className="bg-white text-[#111] px-4 py-2 rounded-full transition-all hover:bg-gray-200"
             >
               <PhoneIcon className="h-5 w-5 inline-block mr-2" />
-              Start a call
+              Call my AI assistant
             </button>
           ) : (
             <>
