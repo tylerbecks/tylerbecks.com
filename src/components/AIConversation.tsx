@@ -5,7 +5,10 @@ import { PhoneIcon, PhoneXMarkIcon } from '@heroicons/react/24/solid';
 const AGENT_ID = 'soblHdsUBU9PQu1VwrTT';
 
 export default function AIConversation() {
-  const [messages, setMessages] = useState<Array<{ text: string; fromAI: boolean }>>([]);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [messages, setMessages] = useState<
+    Array<{ text: string; fromAI: boolean }>
+  >([]);
   const [audioLevel, setAudioLevel] = useState(0);
   const analyserRef = useRef<AnalyserNode | null>(null);
   const animationFrameRef = useRef<number>();
@@ -21,7 +24,10 @@ export default function AIConversation() {
       }
     },
     onMessage: ({ message, source }) => {
-      setMessages((prev) => [...prev, { text: message, fromAI: source === 'ai' }]);
+      setMessages((prev) => [
+        ...prev,
+        { text: message, fromAI: source === 'ai' },
+      ]);
     },
     onError: (error) => {
       console.error('ElevenLabs error:', error);
@@ -34,7 +40,7 @@ export default function AIConversation() {
       const audioContext = new AudioContext();
       const source = audioContext.createMediaStreamSource(stream);
       const newAnalyser = audioContext.createAnalyser();
-      
+
       // Smaller FFT size for more frequent updates
       newAnalyser.fftSize = 256;
       newAnalyser.smoothingTimeConstant = 0.4;
@@ -75,7 +81,7 @@ export default function AIConversation() {
     // Find the maximum frequency value instead of average
     const maxValue = Math.max(...Array.from(dataArray));
     const normalizedLevel = Math.min(maxValue / 128, 1);
-    
+
     // Apply non-linear scaling for more dramatic effect
     const scaledLevel = Math.pow(normalizedLevel, 1.8);
     setAudioLevel(scaledLevel);
@@ -108,11 +114,11 @@ export default function AIConversation() {
         border: '2px solid rgba(168, 85, 247, 0.6)',
       };
     } else {
-      const borderWidth = Math.max(2, Math.min(5, 2 + (audioLevel * 2))); // Increased range
-      const innerGlow = Math.max(20, Math.min(50, 20 + (audioLevel * 30))); // Much larger range
-      const middleGlow = Math.max(15, Math.min(30, 15 + (audioLevel * 20)));
-      const outerGlow = Math.max(10, Math.min(15, 10 + (audioLevel * 10)));
-      const opacity = Math.max(0.4, Math.min(0.6, 0.4 + (audioLevel * 0.2))); // Higher max opacity
+      const borderWidth = Math.max(2, Math.min(5, 2 + audioLevel * 2)); // Increased range
+      const innerGlow = Math.max(20, Math.min(50, 20 + audioLevel * 30)); // Much larger range
+      const middleGlow = Math.max(15, Math.min(30, 15 + audioLevel * 20));
+      const outerGlow = Math.max(10, Math.min(15, 10 + audioLevel * 10));
+      const opacity = Math.max(0.4, Math.min(0.6, 0.4 + audioLevel * 0.2)); // Higher max opacity
 
       return {
         boxShadow: `
@@ -159,7 +165,9 @@ export default function AIConversation() {
               </button>
 
               <div className="text-sm text-gray-500 ml-2">
-                {conversation.isSpeaking ? 'Agent is speaking...' : 'Listening...'}
+                {conversation.isSpeaking
+                  ? 'Agent is speaking...'
+                  : 'Listening...'}
               </div>
             </>
           )}
