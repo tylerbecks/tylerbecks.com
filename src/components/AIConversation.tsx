@@ -1,6 +1,7 @@
 import { useConversation } from '@11labs/react';
 import { useCallback, useState, useEffect, useRef } from 'react';
-import { PhoneIcon, PhoneXMarkIcon } from '@heroicons/react/24/solid';
+import { PhoneIcon, PhoneOffIcon } from 'lucide-react';
+import { Button } from './ui/button';
 
 const AGENT_ID = 'soblHdsUBU9PQu1VwrTT';
 
@@ -147,22 +148,16 @@ export default function AIConversation() {
       <div className="max-w-2xl mx-auto p-4">
         <div className="space-y-2 min-h-[75px] flex flex-col items-start">
           {!isConnected ? (
-            <button
-              onClick={startConversation}
-              className="bg-white text-[#111] px-4 py-2 rounded-full transition-all hover:bg-gray-200"
-            >
-              <PhoneIcon className="h-5 w-5 inline-block mr-2" />
+            <Button onClick={startConversation} variant="secondary">
+              <PhoneIcon className="h-5 w-5" />
               Call my AI assistant
-            </button>
+            </Button>
           ) : (
             <>
-              <button
-                onClick={stopConversation}
-                className="bg-red-500 text-white px-4 py-2 rounded-full hover:bg-red-600 transition-all"
-              >
-                <PhoneXMarkIcon className="h-5 w-5 inline-block mr-2" />
+              <Button onClick={stopConversation} variant="destructive">
+                <PhoneOffIcon className="h-5 w-5" />
                 End call
-              </button>
+              </Button>
 
               <div className="text-sm text-gray-500 ml-2">
                 {conversation.isSpeaking
