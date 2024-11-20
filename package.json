@@ -23,21 +23,21 @@
   },
   "dependencies": {
     "@11labs/react": "^0.0.2",
-    "@astrojs/check": "^0.5.3",
-    "@astrojs/mdx": "^2.1.1",
-    "@astrojs/netlify": "^5.1.2",
+    "@astrojs/check": "^0.9.4",
+    "@astrojs/mdx": "^3.1.9",
+    "@astrojs/netlify": "^5.5.4",
     "@astrojs/react": "^3.6.2",
-    "@astrojs/rss": "^4.0.5",
-    "@astrojs/sitemap": "^3.0.5",
+    "@astrojs/rss": "^4.0.9",
+    "@astrojs/sitemap": "^3.2.1",
     "@astrojs/tailwind": "^5.1.2",
     "@heroicons/react": "^2.2.0",
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
-    "astro": "^4.3.5",
+    "astro": "^4.16.13",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "tailwindcss": "^3.4.15",
-    "typescript": "^5.3.3"
+    "typescript": "^5.6.3"
   },
   "devDependencies": {
     "@eslint/js": "^9.15.0",
