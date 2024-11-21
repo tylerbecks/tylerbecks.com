@@ -18,6 +18,6 @@ export default [
     },
   },
   {
-    ignores: ['.astro/*', 'src/env.d.ts'],
+    ignores: ['.astro/*', 'src/env.d.ts', '**/components/ui/**'],
   },
 ];

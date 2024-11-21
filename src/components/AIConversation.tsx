@@ -1,7 +1,12 @@
 import { useConversation } from '@11labs/react';
-import { useCallback, useState, useEffect, useRef } from 'react';
+import { useCallback, useState, useEffect, useRef, useMemo } from 'react';
 import { PhoneIcon, PhoneOffIcon } from 'lucide-react';
 import { Button } from './ui/button';
+import LinkedInCard from './cards/LinkedInCard';
+import SmarkingCard from './cards/SmarkingCard';
+import FuegoCard from './cards/FuegoCard';
+import CalPolyCard from './cards/CalPolyCard';
+import ResponsiveCardsContainer from './ResponsiveCardContainer';
 
 const AGENT_ID = 'soblHdsUBU9PQu1VwrTT';
 
@@ -132,6 +137,46 @@ export default function AIConversation() {
     }
   };
 
+  const lastAiMessage = useMemo(() => {
+    for (let i = messages.length - 1; i >= 0; i--) {
+      if (messages[i].fromAI) {
+        return messages[i].text;
+      }
+    }
+    return null;
+  }, [messages]);
+
+  const cards = useMemo(() => {
+    const message = lastAiMessage?.toLowerCase();
+    const isLinkedInMention =
+      message?.includes('linkedin') || message?.includes('recruiter');
+    const isSmarkingMention =
+      message?.includes('smarking') || message?.includes('parking');
+    const isFuegoMention = message?.includes('fuego');
+    const isCalPolyMention =
+      message?.includes('cal poly') ||
+      message?.includes('calpoly') ||
+      message?.includes('cal-poly') ||
+      message?.includes('cal poly pomona') ||
+      message?.includes('california polytechnic');
+
+    const cards = [];
+    if (isFuegoMention) {
+      cards.push(<FuegoCard />);
+    }
+    if (isLinkedInMention) {
+      cards.push(<LinkedInCard />);
+    }
+    if (isSmarkingMention) {
+      cards.push(<SmarkingCard />);
+    }
+    if (isCalPolyMention) {
+      cards.push(<CalPolyCard />);
+    }
+
+    return cards;
+  }, [lastAiMessage]);
+
   return (
     <>
       {/* Glowing border container */}
@@ -145,16 +190,28 @@ export default function AIConversation() {
       />
 
       {/* Main content */}
-      <div className="max-w-2xl mx-auto p-4">
-        <div className="space-y-2 min-h-[75px] flex flex-col items-start">
+      <div className="mx-auto p-4">
+        <div className="gap-2 min-h-[75px] flex flex-col items-center justify-center mb-4">
           {!isConnected ? (
-            <Button onClick={startConversation} variant="secondary">
-              <PhoneIcon className="h-5 w-5" />
-              Call my AI assistant
-            </Button>
+            <>
+              <Button
+                size="lg"
+                onClick={startConversation}
+                variant="default"
+                className="font-bold"
+              >
+                <PhoneIcon className="h-5 w-5" />
+                Call my AI assistant
+              </Button>
+              <div className="h-5" />
+            </>
           ) : (
             <>
-              <Button onClick={stopConversation} variant="destructive">
+              <Button
+                size="lg"
+                onClick={stopConversation}
+                variant="destructive"
+              >
                 <PhoneOffIcon className="h-5 w-5" />
                 End call
               </Button>
@@ -166,6 +223,10 @@ export default function AIConversation() {
               </div>
             </>
           )}
+        </div>
+
+        <div className="min-h-[250px]">
+          <ResponsiveCardsContainer cards={cards} />
         </div>
       </div>
     </>
