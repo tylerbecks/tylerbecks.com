@@ -26,6 +26,16 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
   <head>
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
   </head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CHDV56W43C"></script>
+  <script>
+    const myWindow = window as any;
+    myWindow.dataLayer = myWindow.dataLayer || [];
+    function gtag(...args: any[]) {
+      myWindow.dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'G-CHDV56W43C');
+  </script>
   <body class="flex items-center justify-between flex-col">
     <main class="flex items-center flex-col justify-center gap-4 p-8 m-auto">
       <div>
