@@ -195,10 +195,10 @@ export default function AIConversation() {
           {!isConnected ? (
             <>
               <Button
-                size="lg"
+                className="font-bold m-2 md:m-4 lg:m-6"
                 onClick={startConversation}
+                size="lg"
                 variant="default"
-                className="font-bold"
               >
                 <PhoneIcon className="h-5 w-5" />
                 Call my AI assistant
@@ -208,8 +208,9 @@ export default function AIConversation() {
           ) : (
             <>
               <Button
-                size="lg"
+                className="m-2 md:m-4 lg:m-6"
                 onClick={stopConversation}
+                size="lg"
                 variant="destructive"
               >
                 <PhoneOffIcon className="h-5 w-5" />
